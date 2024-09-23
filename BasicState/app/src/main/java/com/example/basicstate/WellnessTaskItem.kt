@@ -1,5 +1,6 @@
 package com.example.basicstate;
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -15,7 +16,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.basicstate.ui.theme.BasicStateTheme
 
 @Composable
 fun WellnessTaskItem(
@@ -58,5 +61,19 @@ fun StatelessWellnessTaskItem(
             Icon(Icons.Filled.Close, contentDescription = "Close")
         }
 
+    }
+}
+
+@PortraitPreview
+@LandscapePreview
+@Composable
+private fun StatelessWellnessTaskItemPreview() {
+    BasicStateTheme {
+        StatelessWellnessTaskItem(
+            taskName = "Do this and that",
+            checked = true,
+            onCheckedChange = {},
+            onClose = {}
+        )
     }
 }
